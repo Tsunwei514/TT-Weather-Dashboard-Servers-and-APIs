@@ -1,14 +1,16 @@
 
 # Weather Dashboard
 
+
 ## Description
 Weather Dashboard
 
 ## Installation
-Run `npm install`
+use command "npm i" to install the dependencies for the project
 
 ## Usage
-use command "npm i" to install the dependencies for the project
+use command "npm start"
+
 
 Live application at: [https://tt-weather-dashboard-servers-and-apis.onrender.com](https://tt-weather-dashboard-servers-and-apis.onrender.com)
 
