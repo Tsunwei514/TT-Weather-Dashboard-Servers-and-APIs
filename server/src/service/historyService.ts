@@ -8,7 +8,7 @@ class City {
 
   constructor(name: string, id: string) {
     this.name = name;
-    this.id = name;
+    this.id = id;
   }
 }
 
