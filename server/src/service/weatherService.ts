@@ -70,13 +70,21 @@ class WeatherService {
   private buildWeatherQuery(coordinates: Coordinates): string {
     const { baseURL, apiKey } = this;
     const { lat, lon } = coordinates;
-    return `${baseURL}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&apiKey=${apiKey}`;
+    return `${baseURL}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
   }
   // TODO: Create fetchAndDestructureLocationData method
   private async fetchAndDestructureLocationData() {
     const query = this.buildGeocodeQuery();
+    console.log(`Geocode Query: ${query}`); // Debugging
     const locationData = await this.fetchLocationData(query);
-    return this.destructureLocationData(locationData);
+    console.log(`Geocode Response: ${JSON.stringify(locationData)}`); // Debugging
+  
+    if (!locationData || locationData.length === 0) {
+      throw new Error(`No location data found for query: ${this.cityName}`);
+    }
+  
+    const { lat, lon } = locationData[0];
+    return { lat, lon };
   }
 
   // TODO: Create fetchWeatherData method
